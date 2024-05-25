@@ -142,3 +142,9 @@ img {
 .exp > div > div:focus::after {
     display: block;
 }
+
+span {
+    background: var(--fgc);
+    color: var(--bgc);
+    border-radius: 0.125em;
+}
