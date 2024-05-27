@@ -1,0 +1,43 @@
+:root{
+    --bg-col: #202020;
+    --acc-col: #40E0D0;
+    --fg-col: #FFFFFF;
+    color-scheme: dark;
+}
+
+@font-face {
+    font-family: jbmono;
+    src: url(/resources/assets/font/jetbrainsmono.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: jbmono, system-ui;
+    color: var(--fg-col);
+    outline: none;
+    box-sizing: border-box;
+}
+
+/*:focus{
+   outline: var(--acc-col) medium dashed;
+}*/
+
+body{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-col);
+    height: 100dvh;
+    width: 100dvw;
+    overflow: hidden;
+}
+
+.noselect {
+    -webkit-touch-callout: none; 
+      -webkit-user-select: none; 
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none; 
+              user-select: none;
+}

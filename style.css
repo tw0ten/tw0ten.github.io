@@ -37,13 +37,13 @@ main {
     flex-direction: column;
 }
 
-img {
+main > img {
     width: 6em;
     padding: 0.5em;
     border-radius: 25%;
 }
 
-.contacts {
+section {
     padding: 0.5em;
 }
 
@@ -53,51 +53,44 @@ img {
     text-decoration: none;
 }
 
-.contacts > div {
-    margin-top: 0.5em;
+.entries {
     text-align: center;
+    margin-top: 0.5em;
     cursor: default;
 }
 
-.contacts > div > a {
-    width: 1.5em;
-    height: 1.5em;
-    display: inline-block;
-}
-
-.contacts > div > a > svg {
-    width: 100%;
-    height: 100%;
-}
-
-.exp {
-    padding: 0.5em;
-}
-
-.exp > div {
-    margin-top: 0.5em;
-    text-align: center;
-    cursor: default;
-}
-
-.exp > div > div {
+.entries > * {
     width: 1.5em;
     height: 1.5em;
     display: inline-block;
     position: relative;
 }
 
-.exp > div > div > svg {
+.entries > * > * {
     width: 100%;
     height: 100%;
 }
 
-.exp > div > svg::after {
-    content: attr(name);
-    width: 10em;
-    height: 2em;
+.entries > img::after {
+    content: attr(hint);
     background-color: var(--bgc);
     color: var(--fgc);
+}
+
+.entries > div::after {
+    display: none;
+    content: attr(hint);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-bottom: 0.25em;
+    padding: 0.125em;
+    border-radius: 0.125em;
+    transform: translateX(-50%);
+    background-color: var(--fgc);
+    color: var(--bgc);
+    z-index: 1;
+    text-wrap: nowrap;
 }
 
 @keyframes interjection {
@@ -115,31 +108,15 @@ img {
     }
 }
 
-.exp > div > div::after {
-    display: none;
-    content: attr(name);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    margin-bottom: 0.25em;
-    padding: 0.125em;
-    border-radius: 0.125em;
-    transform: translateX(-50%);
-    background-color: var(--fgc);
-    color: var(--bgc);
-    z-index: 1;
-    text-wrap: nowrap;
-}
-
-.exp > div > div[long]:hover::after {
+.entries > div[long]:hover::after {
     animation: interjection 3s linear;
     width: 30em;
     font-size: 0.5em;
     text-wrap: wrap;
 }
 
-.exp > div > div:hover::after,
-.exp > div > div:focus::after {
+.entries > div:hover::after,
+.entries > div:focus::after {
     display: block;
 }
 
@@ -147,4 +124,12 @@ span {
     background: var(--fgc);
     color: var(--bgc);
     border-radius: 0.125em;
+}
+
+.bordered > * {
+    height: auto;
+}
+.bordered > * > svg {
+    border: 1px solid var(--fgc);
+    background: var(--fgc);
 }

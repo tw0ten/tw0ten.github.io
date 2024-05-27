@@ -1,0 +1,60 @@
+<style>
+    @keyframes fadein {
+        0%{
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes rotate {
+        0%{
+            rotate: 0deg;
+        }
+        100% {
+            rotate: 360deg;
+        }
+    }
+    .loading::before {
+        rotate: -45deg;
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+
+        background-color: var(--acc-col);
+        width: 5em;
+        height: 5em;
+    }
+    .loading {
+        opacity: 0;
+        transition: 0.5s;
+        rotate: 0deg;
+        animation: fadein 0.5s ease-in forwards, rotate infinite 1s ease-in-out;
+        animation-delay: 2s;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+
+        background-color: var(--fg-col);
+        width: 5em;
+        height: 5em;
+    }
+    .loading::after {
+        rotate: 0deg;
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+
+        background-color: var(--fg-col);
+        width: 5em;
+        height: 5em;
+        border-radius: 50%;
+        scale: 0.75;
+    }
+</style>
+<div class="loading"></div>

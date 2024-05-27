@@ -1,0 +1,109 @@
+<style>
+    .sidebar{
+        --offset: 0.5em;
+        padding: var(--offset);
+        height: 100%;
+        background-color: var(--bg-col);
+        transition: 150ms;
+        z-index: 4;
+        min-width: max-content;
+        overflow-y: scroll;
+    }
+    
+    .sidebar button{
+        transition: 0.5s;
+        background-color: var(--bg-col);
+        border-radius: 1em;
+        display: flex;
+        margin: var(--offset);
+        border: none;
+        padding: .5rem;
+        place-items: center;
+        color: var(--acc-col);
+        box-sizing: content-box;
+
+        height: 3em;
+        min-width: 3em;
+        visibility: visible;
+    }
+
+    .sidebar button * {
+        transition: 0.5s;
+        color: var(--acc-col);
+    }
+
+    .sidebar img,
+    .mainbtn,
+    .sidebar svg {
+        border-radius: 15%;
+        height: 100%;
+        aspect-ratio: 1/1;
+        max-height: 100%;
+    }
+
+    .sidebar button:hover{
+        transition: 0.5s;
+        box-shadow: calc(0em - var(--offset)) calc(0em - var(--offset)) var(--acc-col);
+        transform: translate(var(--offset), var(--offset));
+    }
+
+    .sidebar button:active{
+        transition: none;
+        box-shadow: calc(0em - var(--offset)) calc(0em - var(--offset)) var(--fg-col);
+        transform: translate(var(--offset), var(--offset));
+    }
+
+    .sidebar .mainbtn {
+        position: relative;
+    }
+    .sidebar .mainbtn img {
+        position: absolute;
+        inset: 0;
+    }
+    .sidebar .mainbtn img:nth-child(2) {
+        transition: 0.5s;
+        opacity: 0;
+    }
+    .sidebar button:active .mainbtn img:nth-child(2) {
+        transition: 0s;
+        opacity: 1;
+    }
+
+    .svg-icon path, .sidebar button > svg{
+        transition: 0.5s;
+        fill: var(--acc-col);
+        stroke: var(--acc-col);
+    }
+
+    .sidebar > button:active *{
+        transition: none;
+        color: var(--fg-col);
+        fill: var(--fg-col);
+        stroke: var(--fg-col);
+    }
+</style>
+<div id="sidebar" class="sidebar">
+    <button onclick="toggle()" style="height: 3.5em;">
+        <div class="mainbtn">
+            <img src="/resources/assets/image/me64.png" alt="2(10">
+            <img src="/resources/assets/image/me64mask.png" alt="2(10">
+        </div>
+        <h1 class="noselect">2(10</h1>
+    </button>
+    <button onclick="loadPage('main')">
+        <h2>main</h2>
+    </button>
+    <button onclick="toggleApp()">
+        <svg class="svg-icon" viewBox="0 0 20 20" id="toggleapp">
+            <path fill="none" d="M10,0.562c-5.195,0-9.406,4.211-9.406,9.406c0,5.195,4.211,9.406,9.406,9.406c5.195,0,9.406-4.211,9.406-9.406C19.406,4.774,15.195,0.562,10,0.562 M10,18.521c-4.723,0-8.551-3.829-8.551-8.552S5.277,1.418,10,1.418s8.552,3.828,8.552,8.551S14.723,18.521,10,18.521"></path>
+        </svg>
+    </button>
+    <button onclick="loadPage('console')">
+        <svg style="scale: 0.75;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M2 6C2 4.34315 3.34315 3 5 3H19C20.6569 3 22 4.34315 22 6V18C22 19.6569 20.6569 21 19 21H5C3.34315 21 2 19.6569 2 18V6ZM5 5C4.44772 5 4 5.44772 4 6V7H20V6C20 5.44772 19.5523 5 19 5H5ZM4 18V9H20V18C20 18.5523 19.5523 19 19 19H5C4.44772 19 4 18.5523 4 18ZM7.70711 11.2929C7.31658 10.9024 6.68342 10.9024 6.29289 11.2929C5.90237 11.6834 5.90237 12.3166 6.29289 12.7071L7.58579 14L6.29289 15.2929C5.90237 15.6834 5.90237 16.3166 6.29289 16.7071C6.68342 17.0976 7.31658 17.0976 7.70711 16.7071L9.70711 14.7071C10.0976 14.3166 10.0976 13.6834 9.70711 13.2929L7.70711 11.2929Z"></path></g></svg>
+        <h3>console</h3>
+    </button>
+    <button onclick="loadPage('github')">
+        <svg style="scale: 0.75;" viewbox = "0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"/></svg>
+        <h3>github</h3>
+    </button>
+</div>
