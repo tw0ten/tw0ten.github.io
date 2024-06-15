@@ -1,3 +1,5 @@
+//todo: rewrite this shit
+
 const repos = [null]
 const ghn = "tw0ten"
 

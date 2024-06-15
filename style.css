@@ -20,7 +20,7 @@
 }
 
 * {
-    background: var(--bgc);
+    background: transparent;
     color: var(--fgc);
     margin: 0;
     padding: 0;
@@ -28,6 +28,10 @@
     max-width: 100%;
     text-align: center;
     word-wrap: break-word;
+}
+
+body {
+    background: var(--bgc);
 }
 
 main {
@@ -38,25 +42,31 @@ main {
     flex-direction: column;
 }
 
-main > img {
-    width: 6em;
+main > header > img {
+    width: 5.5em;
     padding: 0.5em;
-    border-radius: 25%;
+    border-radius: 20%;
 }
 
 section {
     padding: 0.5em;
 }
 
-.contacts a:hover {
-    color: var(--acc);
-    fill: var(--acc);
+a[href] {
     text-decoration: none;
+}
+
+a[href]:hover {
+    color: var(--acc);
+}
+
+.contacts a:hover {
+    fill: var(--acc);
 }
 
 .entries {
     text-align: center;
-    margin-top: 0.5em;
+    margin-top: 0.25em;
     cursor: default;
 }
 
@@ -116,7 +126,8 @@ section {
     }
 }
 
-.entries > div[long]:hover::after {
+.entries > *[long]:hover::after,
+.entries > *[long]:focus::after {
     animation: interjection 3s linear;
     width: 30em;
     font-size: 0.5em;

@@ -11,26 +11,28 @@
 <body>
     <div hx-get="/elements/watermark.html" hx-swap="outerHTML" hx-trigger="load"></div>
     <div hx-get="/elements/background.html" hx-swap="outerHTML" hx-trigger="load">
-        <script src="/resources/scripts/font.js"></script>
-        <script src="/resources/scripts/pixels.js"></script>
-        <script src="/resources/scripts/background.js"></script>
+        <script src="/resources/scripts/app/font.js"></script>
+        <script src="/resources/scripts/app/pixels.js"></script>
+        <script src="/resources/scripts/app/background.js"></script>
     </div>
 
     <main style="width: 100%; display: flex;">
         <div hx-get="/elements/sidebar.html" hx-swap="outerHTML" hx-trigger="load">
-            <script src="/resources/scripts/sidebar.js"></script>
+            <script src="/resources/scripts/app/sidebar.js"></script>
         </div>
         <div hx-get="/elements/app.html" hx-swap="outerHTML" hx-trigger="load">
-            <script src="/resources/scripts/console.js"></script>
-            <script src="/resources/scripts/github.js"></script>
-            <script src="/resources/scripts/graphs.js"></script>
+            <script src="/resources/scripts/app/console.js"></script>
+            <script src="/resources/scripts/github.js">
 
-            <script src="/resources/scripts/app.js"></script>
+            </script>
+            <script src="/resources/scripts/app/graphs.js"></script>
+
+            <script src="/resources/scripts/app/app.js"></script>
         </div>
     </main>
 
     <div hx-get="/elements/notify.html" hx-swap="outerHTML" hx-trigger="load">
-        <script src="/resources/scripts/notify.js"></script>
+        <script src="/resources/scripts/app/notify.js"></script>
     </div>
 </body>
 </html>
