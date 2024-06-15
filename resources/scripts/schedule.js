@@ -16,23 +16,14 @@ function createSc(name, date){
     }
 }
 
-function w0(n, x=2){
-    n+="";
-    for(let i = 0; i<x; i++){
-        if(n.length==x)
-            break;
-        n = "0"+n;
-    }
-    return n;
-}
-
 function formatDate(d, wS=true){
-    return `[${d.getDay()}.${w0(d.getDate())}/${w0(d.getMonth()+1)}|${w0(d.getHours())}:${w0(d.getMinutes())}` + (!wS ? "" : ":" + w0(d.getSeconds())) + "]";
+    return `[${d.getDay()}.${d.getDate().toString().padStart(2,"0")}/${(d.getMonth()+1).toString().padStart(2,"0")}|${d.getHours().toString().padStart(2,"0")}:${d.getMinutes().toString().padStart(2,"0")}` + (!wS ? "" : ":" + d.getSeconds().toString().padStart(2,"0")) + "]";
 }
 
 function updateSchedule(){
     const d = new Date();
-    while(sc.length>0&&sc[0].date.getTime()+1*60*1000<d.getTime()){
+    const rmTime = 1*60*1000;
+    while(sc.length>0&&sc[0].date.getTime()+rmTime<d.getTime()){
         sc.splice(0,1);
     }
     sce.innerText = "";

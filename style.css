@@ -42,14 +42,30 @@ main {
     flex-direction: column;
 }
 
-main > header > img {
-    width: 5.5em;
-    padding: 0.5em;
-    border-radius: 20%;
-}
-
 section {
     padding: 0.5em;
+}
+
+.me {
+    height: 4.5em;
+    width: 4.5em;
+    border-radius: 15%;
+    overflow: hidden;
+    position: relative;
+}
+
+.me > img {
+    opacity: 1;
+    left: 0;
+    top: 0;
+    image-rendering: pixelated;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.me:hover > img {
+    opacity: 1 !important;
 }
 
 a[href] {
