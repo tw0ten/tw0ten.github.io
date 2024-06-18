@@ -44,6 +44,8 @@ main {
 
 section {
     padding: 0.5em;
+    display: grid;
+    place-items: center;
 }
 
 .me {
@@ -130,14 +132,14 @@ a[href]:hover {
 @keyframes interjection {
     from {
         content: "Linux";
-        width: auto;
-        font-size: initial;
+        width: unset;
+        font-size: unset;
         color: default;
     }
     to {
         content: "Linux";
-        width: auto;
-        font-size: initial;
+        width: unset;
+        font-size: unset;
         color: var(--acc);
     }
 }
@@ -163,4 +165,8 @@ span {
 .bordered > * > svg {
     border: 1px solid var(--fgc);
     background: var(--fgc);
+}
+
+header > section > h2 {
+    line-height: 1.1;
 }
