@@ -1,172 +1,172 @@
 @font-face {
-    font-family: jbmono;
-    src: url(/resources/assets/font/jetbrainsmono.ttf);
+	font-family: jbmono;
+	src: url(/resources/assets/font/jetbrainsmono.ttf);
 }
 
-:root{
-    --bgc: #202020;
-    --fgc: #FFFFFF;
-    --acc: #40E0D0;
-    font-family: jbmono;
-    font-size: 16px;
-    fill: var(--fgc);
+:root {
+	--bgc: #202020;
+	--fgc: #ffffff;
+	--acc: #40e0d0;
+	font-family: jbmono;
+	font-size: 16px;
+	fill: var(--fgc);
 }
 
 @media (prefers-color-scheme: light) {
-    :root{
-        --bgc: #FFFFFF;
-        --fgc: #202020;
-    }
+	:root {
+		--bgc: #ffffff;
+		--fgc: #202020;
+	}
 }
 
 * {
-    background: transparent;
-    color: var(--fgc);
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    max-width: 100%;
-    text-align: center;
-    word-wrap: break-word;
+	background: transparent;
+	color: var(--fgc);
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	max-width: 100%;
+	text-align: center;
+	word-wrap: break-word;
 }
 
 body {
-    background: var(--bgc);
+	background: var(--bgc);
 }
 
 main {
-    padding: 2em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+	padding: 2em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 
 section {
-    padding: 0.5em;
-    display: grid;
-    place-items: center;
+	padding: 0.5em;
+	display: grid;
+	place-items: center;
 }
 
 .me {
-    height: 4.5em;
-    width: 4.5em;
-    border-radius: 15%;
-    overflow: hidden;
-    position: relative;
+	height: 4.5em;
+	width: 4.5em;
+	border-radius: 15%;
+	overflow: hidden;
+	position: relative;
 }
 
 .me > img {
-    opacity: 1;
-    left: 0;
-    top: 0;
-    image-rendering: pixelated;
-    position: absolute;
-    height: 100%;
-    width: 100%;
+	opacity: 1;
+	left: 0;
+	top: 0;
+	image-rendering: pixelated;
+	position: absolute;
+	height: 100%;
+	width: 100%;
 }
 
 .me:hover > img {
-    opacity: 1 !important;
+	opacity: 1 !important;
 }
 
 a[href] {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 a[href]:hover {
-    color: var(--acc);
+	color: var(--acc);
 }
 
 .contacts a:hover {
-    fill: var(--acc);
+	fill: var(--acc);
 }
 
 .entries {
-    text-align: center;
-    margin-top: 0.25em;
-    cursor: default;
+	text-align: center;
+	margin-top: 0.25em;
+	cursor: default;
 }
 
 .entries > * {
-    width: 1.5em;
-    height: 1.5em;
-    display: inline-block;
-    position: relative;
-    margin: 0.0625em;
+	width: 1.5em;
+	height: 1.5em;
+	display: inline-block;
+	position: relative;
+	margin: 0.0625em;
 }
 
 .entries > * > * {
-    width: 100%;
-    height: 100%;
-    vertical-align: center;
+	width: 100%;
+	height: 100%;
+	vertical-align: center;
 }
 
 .entries > img::after {
-    content: attr(hint);
-    background-color: var(--bgc);
-    color: var(--fgc);
+	content: attr(hint);
+	background-color: var(--bgc);
+	color: var(--fgc);
 }
 
 *[hint]::after {
-    display: none;
-    content: attr(hint);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    margin-bottom: 0.25em;
-    padding: 0.125em;
-    border-radius: 0.125em;
-    transform: translateX(-50%);
-    background-color: var(--fgc);
-    color: var(--bgc);
-    z-index: 1;
-    text-wrap: nowrap;
+	display: none;
+	content: attr(hint);
+	position: absolute;
+	bottom: 100%;
+	left: 50%;
+	margin-bottom: 0.25em;
+	padding: 0.125em;
+	border-radius: 0.125em;
+	transform: translateX(-50%);
+	background-color: var(--fgc);
+	color: var(--bgc);
+	z-index: 1;
+	text-wrap: nowrap;
 }
 
 *[hint]:hover::after,
 *[hint]:focus::after {
-    display: block;
+	display: block;
 }
 
 @keyframes interjection {
-    from {
-        content: "Linux";
-        width: unset;
-        font-size: unset;
-        color: default;
-    }
-    to {
-        content: "Linux";
-        width: unset;
-        font-size: unset;
-        color: var(--acc);
-    }
+	from {
+		content: "Linux";
+		width: unset;
+		font-size: unset;
+		color: default;
+	}
+	to {
+		content: "Linux";
+		width: unset;
+		font-size: unset;
+		color: var(--acc);
+	}
 }
 
 .entries > *[long]:hover::after,
 .entries > *[long]:focus::after {
-    animation: interjection 3s linear;
-    width: 30em;
-    font-size: 0.5em;
-    text-wrap: wrap;
+	animation: interjection 3s linear;
+	width: 30em;
+	font-size: 0.5em;
+	text-wrap: wrap;
 }
 
 span {
-    background: var(--fgc);
-    color: var(--bgc);
-    border-radius: 0.125em;
+	background: var(--fgc);
+	color: var(--bgc);
+	border-radius: 0.125em;
 }
 
 .bordered > * {
-    height: auto;
+	height: auto;
 }
 
 .bordered > * > svg {
-    border: 1px solid var(--fgc);
-    background: var(--fgc);
+	border: 1px solid var(--fgc);
+	background: var(--fgc);
 }
 
 header > section > h2 {
-    line-height: 1.1;
+	line-height: 1.1;
 }

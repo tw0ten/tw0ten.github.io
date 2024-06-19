@@ -8,24 +8,29 @@
         word-break: break-all;
         z-index: 3;
     }
-    .notify:hover{
+
+    .notify:hover {
         animation-play-state: paused;
     }
+
     @keyframes timeout {
         to {
             width: 0%;
         }
     }
-    .notify > div {
+
+    .notify>div {
         padding: 0.25em;
         margin: 0.25em;
         position: relative;
         animation-play-state: inherit;
     }
-    .notify > div:hover::after {
+
+    .notify>div:hover::after {
         opacity: 0;
     }
-    .notify > div::after {
+
+    .notify>div::after {
         content: '';
         background-color: var(--fg-col);
         width: 100%;
@@ -39,10 +44,11 @@
         animation-play-state: inherit;
     }
 
-    .notify > div:nth-child(odd) {
+    .notify>div:nth-child(odd) {
         background-color: var(--bg-col);
     }
-    .notify > div:nth-child(even) {
+
+    .notify>div:nth-child(even) {
         background-color: #101010;
     }
 </style>

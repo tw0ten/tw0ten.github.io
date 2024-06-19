@@ -1,20 +1,24 @@
 <style>
     @keyframes fadein {
-        0%{
+        0% {
             opacity: 0;
         }
+
         100% {
             opacity: 1;
         }
     }
+
     @keyframes rotate {
-        0%{
+        0% {
             rotate: 0deg;
         }
+
         100% {
             rotate: 360deg;
         }
     }
+
     .loading::before {
         rotate: -45deg;
         content: '';
@@ -27,6 +31,7 @@
         width: 5em;
         height: 5em;
     }
+
     .loading {
         opacity: 0;
         transition: 0.5s;
@@ -42,6 +47,7 @@
         width: 5em;
         height: 5em;
     }
+
     .loading::after {
         rotate: 0deg;
         content: '';
