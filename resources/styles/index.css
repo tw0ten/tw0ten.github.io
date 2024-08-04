@@ -99,7 +99,6 @@ a[href]:hover {
 .entries > * > * {
 	width: 100%;
 	height: 100%;
-	vertical-align: center;
 }
 
 .entries > img::after {
@@ -127,29 +126,6 @@ a[href]:hover {
 *[hint]:hover::after,
 *[hint]:focus::after {
 	display: block;
-}
-
-@keyframes interjection {
-	from {
-		content: "Linux";
-		width: unset;
-		font-size: unset;
-		color: default;
-	}
-	to {
-		content: "Linux";
-		width: unset;
-		font-size: unset;
-		color: var(--acc);
-	}
-}
-
-.entries > *[long]:hover::after,
-.entries > *[long]:focus::after {
-	animation: interjection 3s linear;
-	width: 30em;
-	font-size: 0.5em;
-	text-wrap: wrap;
 }
 
 span {
