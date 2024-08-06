@@ -1,5 +1,5 @@
 async function notify(str, timeout = 2000) {
-	if(timeout<=0) return;
+	if (timeout <= 0) return;
 	const p = document.getElementById("notify");
 	if (!p) {
 		const el = document.createElement("div");
@@ -8,7 +8,7 @@ async function notify(str, timeout = 2000) {
 		const link = document.createElement("link");
 		link.rel = "stylesheet";
 		link.type = "text/css";
-		link.href = "/resources/styles/notify.css";
+		link.href = "/!/styles/notify.css";
 		link.media = "all";
 		document.getElementsByTagName("head")[0].appendChild(link);
 		return notify(str, timeout);

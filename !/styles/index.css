@@ -1,13 +1,13 @@
 @font-face {
-	font-family: jbmono;
-	src: url(/resources/assets/font/jetbrainsmono.ttf);
+	font-family: "JetBrains Mono";
+	src: url(/!/assets/font/JetBrains-Mono.ttf);
 }
 
 :root {
 	--bgc: #202020;
 	--fgc: #ffffff;
 	--acc: #40e0d0;
-	font-family: jbmono;
+	font-family: "JetBrains Mono";
 	font-size: 16px;
 	fill: var(--fgc);
 }
