@@ -1,5 +1,5 @@
-async function fetchRepos(name = "tw0ten", retry = 3000) {
-	if (retry <= 0) return [];
+async function fetchRepos(name = "tw0ten", timeout = 3000, retry = 5) {
+	if (retry == 0) return [];
 	let l = await (async () => {
 		const rl = await fetch(`https://api.github.com/users/${name}/repos`);
 		if (!rl.ok) return;
@@ -16,6 +16,6 @@ async function fetchRepos(name = "tw0ten", retry = 3000) {
 		return data;
 	})();
 	if (l) return l;
-	await new Promise((r) => setTimeout(r, retry));
-	return await fetchRepos();
+	await new Promise((r) => setTimeout(r, timeout));
+	return await fetchRepos(name, timeout, retry--);
 }
