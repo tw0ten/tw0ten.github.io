@@ -6,7 +6,8 @@
 	input.onkeydown = (e) => {
 		switch (e.keyCode) {
 			case 13: {
-				submit();
+				submit(input.value);
+				setinput();
 				break;
 			}
 			case 38: {
@@ -19,7 +20,7 @@
 				e.preventDefault();
 				histindex = Math.min(history.length, histindex + 1);
 				if (histindex === history.length) {
-					setinput("");
+					setinput();
 					break;
 				}
 				setinput(history[histindex]);
@@ -64,7 +65,7 @@
 			),
 			mkcmd(
 				["clear"],
-				"clear the cmd",
+				"clear the terminal screen",
 				(_args) => {
 					for (let i = 0; i < cmd.children.length; i++) {
 						const e = cmd.children[i];
@@ -93,25 +94,23 @@
 		];
 	})();
 
-	function submit() {
-		const i = input.value;
-		setinput("");
+	function submit(i = "") {
 		const l = document.createElement("p");
 		l.innerText = i;
 		enter(cmdin.children[0].cloneNode(true));
 		enter(l);
-		nl();
+		enter();
 		process(i);
 	}
 
-	function process(i) {
+	function process(i = "") {
 		i = i.trim();
 		if (i.length === 0) return;
 		history.push(i);
 		histindex = history.length;
 		const args = i.split(" ");
 		for (const i of cmds) {
-			for (name of i.name) {
+			for (const name of i.name) {
 				if (name === args[0]) {
 					args.shift();
 					i.func(args);
@@ -138,18 +137,14 @@
 			o.append(i);
 		}
 		enter(o);
-		nl();
+		enter();
 	}
 
-	function nl() {
-		enter(document.createElement("br"));
-	}
-
-	function enter(el) {
+	function enter(el = document.createElement("br")) {
 		cmd.insertBefore(el, cmdin);
 	}
 
-	function setinput(s) {
+	function setinput(s = "") {
 		input.value = s;
 		input.selectionStart = input.selectionEnd = input.value.length;
 		input.focus();
