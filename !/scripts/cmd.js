@@ -1,6 +1,6 @@
 (() => {
 	const cmd = document.getElementById("cmd");
-	const cmdin = document.getElementById("cmdin");
+	const cmdin = cmd.children[0];
 	const input = cmdin.children[1];
 
 	input.onkeydown = (e) => {
@@ -54,6 +54,13 @@
 				"display a line of text",
 				(args) => {
 					out(args.join(" "));
+				},
+			),
+			mkcmd(
+				["exit"],
+				"exit the shell",
+				(_args) => {
+					cmd.parentNode.remove();
 				},
 			),
 			mkcmd(
