@@ -8,10 +8,11 @@ function shuffle(el) {
 	els.forEach((child) => el.appendChild(child));
 }
 
-function randomString(x=0) {
-	const randstr = "=-0987654321`~qwertyuiop[]asdfghjkl;'zxcvbnm/QWERTYUIOP{}|\\ASDFGHJKL:\"ZXCVBNM<>?!@#$%^&*()_+,.";
+function randomString(x = 0) {
+	const randstr =
+		"=-0987654321`~qwertyuiop[]asdfghjkl;'zxcvbnm/QWERTYUIOP{}|\\ASDFGHJKL:\"ZXCVBNM<>?!@#$%^&*()_+,.";
 	let s = "";
-	while (x>0) {
+	while (x > 0) {
 		x--;
 		s += randstr[Math.floor(Math.random() * randstr.length)];
 	}

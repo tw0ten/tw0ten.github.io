@@ -20,21 +20,12 @@
 	}
 
 	function formatDate(d, wS = true) {
-		return (
-			`[${d.getDay()}.${d.getDate().toString().padStart(2, "0")}/${(
-				d.getMonth() + 1
-			)
-					.toString()
-					.padStart(2, "0")}|${d
-							.getHours()
-							.toString()
-							.padStart(2, "0")}:${d
-									.getMinutes()
-									.toString()
-									.padStart(2, "0")}` +
-				(!wS ? "" : ":" + d.getSeconds().toString().padStart(2, "0")) +
-				"]"
-		);
+		return `[${d.getDay()}.${d.getDate().toString().padStart(2, "0")}/${
+			(d.getMonth() + 1).toString().padStart(2, "0")
+		}|${d.getHours().toString().padStart(2, "0")}:${
+			d.getMinutes().toString().padStart(2, "0")
+		}` + (!wS ? "" : ":" + d.getSeconds().toString().padStart(2, "0")) +
+			"]";
 	}
 
 	function updateSchedule() {
@@ -56,8 +47,9 @@
 				sce.appendChild(e);
 				add = true;
 			}
-			if (sc[c].date.getTime() - hlTime < d.getTime())
+			if (sc[c].date.getTime() - hlTime < d.getTime()) {
 				sc[c].element.style.color = "var(--acc)";
+			}
 			sce.appendChild(sc[c].element);
 		}
 		if (!add) {

@@ -1,4 +1,4 @@
-async function notify(str, timeout = 2000) {
+function notify(str, timeout = 2000) {
 	if (timeout <= 0) return;
 	const p = document.getElementById("notify");
 	if (!p) {
