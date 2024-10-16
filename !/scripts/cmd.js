@@ -29,17 +29,6 @@
 		}
 	};
 
-	class Span {
-		text;
-		onclick;
-		constructor(text, onclick) {
-			this.text = text;
-			this.onclick = () => {
-				onclick();
-			};
-		}
-	}
-
 	let histindex = 0;
 	const history = [];
 
@@ -71,6 +60,23 @@
 				},
 			),
 			mkcmd(
+				["cowsay"],
+				"speaking cow",
+				(args) => {
+					const ls = args.join(" ").split("\\n");
+					const l = Math.max(...ls.map((e) => e.length));
+					const s = ls.map((i) => `| ${i.padEnd(l)} |`).join("\n");
+					out(` _${"_".repeat(l)}_
+${s}
+ -${"-".repeat(l)}-
+        \\   ^__^
+         \\  (oo)\\_______
+            (__)\\       )\\/\\
+                ||----w |
+                ||     ||`);
+				},
+			),
+			mkcmd(
 				["clear"],
 				"clear the terminal screen",
 				(_args) => {
@@ -90,9 +96,12 @@
 					for (const i of cmds) {
 						out(
 							" ",
-							new Span(i.name, () => {
-								setinput(i.name[0]);
-							}),
+							{
+								"text": i.name,
+								"action": () => {
+									setinput(i.name[0]);
+								},
+							},
 							": " + i.desc,
 						);
 					}
@@ -131,13 +140,11 @@
 	function out(...s) {
 		const o = document.createElement("p");
 		for (const i of s) {
-			if (i instanceof Span) {
+			if (i.action !== undefined) {
 				const sp = document.createElement("span");
 				sp.innerText = i.text;
-				if (i.onclick !== undefined) {
-					sp.toggleAttribute("onclick");
-					sp.onclick = i.onclick;
-				}
+				sp.toggleAttribute("onclick");
+				sp.onclick = i.action;
 				o.appendChild(sp);
 				continue;
 			}
