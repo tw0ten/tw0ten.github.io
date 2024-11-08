@@ -6,8 +6,7 @@ function notify(str, timeout = 2000) {
 		el.id = "notify";
 		document.body.appendChild(el);
 		const style = document.createElement("style");
-		style.innerText =
-`
+		style.innerText = `
 #notify {
 	top: 0;
 	right: 0;
@@ -57,7 +56,7 @@ function notify(str, timeout = 2000) {
 	animation-duration: inherit;
 	animation-play-state: inherit;
 }
-`
+`;
 		document.getElementsByTagName("head")[0].appendChild(style);
 		return notify(str, timeout);
 	}
@@ -84,3 +83,5 @@ function notify(str, timeout = 2000) {
 	};
 	p.appendChild(el);
 }
+
+export { notify };

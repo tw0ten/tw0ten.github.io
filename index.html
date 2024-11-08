@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>2(10</title>
 		<link rel="stylesheet" href="/!/styles/style.css">
 		<link rel="stylesheet" href="/!/styles/fonts.css">
-		<link rel="shortcut icon" href="/!/assets/image/me64.png" type="image/x-icon">
+		<link rel="stylesheet" href="/!/styles/cmd.css">
+		<link rel="shortcut icon" href="/!/assets/image/me64.png">
 		<script src="/!/scripts/notify.js"></script>
 		<script src="/!/scripts/utils.js"></script>
 	</head>
@@ -208,17 +208,18 @@
 						place-items: center;
 						text-align: left;
 					}
+
 					#gh > li::marker {
 						content: "";
 					}
+
 					#gh > li > svg {
 						width: 1em;
 						height: 1em;
 					}
 				</style>
-				<script src="/!/scripts/github.js"></script>
 				<script>
-					fetchRepos().then((repos) => {
+					import("/!/scripts/github.js").then(m=>m.fetchRepos().then((repos) => {
 						repos = repos.sort((e1, e2) => { return e2.stargazers_count - e1.stargazers_count; }).slice(0, 3);
 						const gh = document.getElementById("gh");
 						gh.innerHTML = "";
@@ -236,52 +237,12 @@
 							e.appendChild(a);
 							gh.appendChild(e);
 						}
-					});
+					}));
 				</script>
 			</section>
 			<section>
 				<div id="cmd"><div><span>$ </span><input type="text" autofocus></div></div>
 				<script src="/!/scripts/cmd.js"></script>
-				<style>
-					#cmd {
-						text-align: left;
-						overflow-y: scroll;
-						overflow-wrap: break-word;
-						padding: 0.5em;
-						width: 100%;
-						max-width: 100%;
-						font-variant-ligatures: none;
-						background: #181818;
-						min-width: 15em;
-					}
-					#cmd span {
-						background: inherit;
-						color: var(--acc);
-					}
-					#cmd span[onclick] {
-						text-decoration: underline;
-						cursor: pointer;
-					}
-					#cmd * {
-						white-space: pre;
-						text-align: left;
-						color: var(--fgc);
-						word-break: keep-all;
-						display: inline;
-					}
-					#cmd > div {
-						display: flex;
-						width: 100%;
-					}
-					#cmd > div > input {
-						min-width: 0px;
-						width: 100%;
-						font: var(--font);
-						outline: none;
-						border: none;
-						background: #181818;
-					}
-				</style>
 			</section>
 		</main>
 		<footer style="opacity: 0.5;">

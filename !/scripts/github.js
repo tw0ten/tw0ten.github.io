@@ -7,7 +7,7 @@ async function fetchRepos(name = "tw0ten", timeout = 3000, retry = 5) {
 		for (const i in data) {
 			if (data[i].fork) {
 				const or = await fetch(
-					`https://api.github.com/repos/${name}/${data[i].name}`
+					`https://api.github.com/repos/${name}/${data[i].name}`,
 				);
 				if (!or.ok) continue;
 				data[i] = await or.json();
@@ -19,3 +19,5 @@ async function fetchRepos(name = "tw0ten", timeout = 3000, retry = 5) {
 	await new Promise((r) => setTimeout(r, timeout));
 	return await fetchRepos(name, timeout, retry--);
 }
+
+export { fetchRepos };

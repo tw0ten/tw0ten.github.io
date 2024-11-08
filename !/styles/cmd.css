@@ -1,0 +1,43 @@
+#cmd {
+	text-align: left;
+	overflow-y: scroll;
+	overflow-wrap: break-word;
+	padding: 0.5em;
+	width: 100%;
+	max-width: 100%;
+	font-variant-ligatures: none;
+	background: #181818;
+	min-width: 15em;
+}
+
+#cmd span {
+	background: inherit;
+	color: var(--acc);
+}
+
+#cmd span[onclick] {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#cmd * {
+	white-space: pre;
+	text-align: left;
+	color: var(--fgc);
+	word-break: keep-all;
+	display: inline;
+}
+
+#cmd>div {
+	display: flex;
+	width: 100%;
+}
+
+#cmd>div>input {
+	min-width: 0px;
+	width: 100%;
+	font: var(--font);
+	outline: none;
+	border: none;
+	background: #181818;
+}
