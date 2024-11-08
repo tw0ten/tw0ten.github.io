@@ -18,5 +18,3 @@ function randomString(x = 0) {
 	}
 	return s;
 }
-
-export { randomString, shuffle };

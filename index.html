@@ -220,7 +220,7 @@
 				</style>
 				<script>
 					import("/!/scripts/github.js").then(m=>m.fetchRepos().then((repos) => {
-						repos = repos.sort((e1, e2) => { return e2.stargazers_count - e1.stargazers_count; }).slice(0, 3);
+						repos = repos.sort((e1, e2) => e2.stargazers_count - e1.stargazers_count).slice(0, 3);
 						const gh = document.getElementById("gh");
 						gh.innerHTML = "";
 						for (const r of repos) {

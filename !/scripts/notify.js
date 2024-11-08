@@ -83,5 +83,3 @@ function notify(str, timeout = 2000) {
 	};
 	p.appendChild(el);
 }
-
-export { notify };
