@@ -8,6 +8,12 @@
 	fill: var(--fgc);
 }
 
+html,
+body {
+	height: 100%;
+	width: 100%;
+}
+
 @media (prefers-color-scheme: light) {
 	:root {
 		--bgc: #ffffff;
@@ -52,7 +58,7 @@ section {
 	position: relative;
 }
 
-.me > img {
+.me>img {
 	opacity: 1;
 	left: 0;
 	top: 0;
@@ -62,7 +68,7 @@ section {
 	width: 100%;
 }
 
-.me:hover > img {
+.me:hover>img {
 	opacity: 1 !important;
 }
 
@@ -84,7 +90,7 @@ a[href]:hover {
 	cursor: default;
 }
 
-.entries > * {
+.entries>* {
 	width: 1.5em;
 	height: 1.5em;
 	display: inline-block;
@@ -92,12 +98,12 @@ a[href]:hover {
 	margin: 0.0625em;
 }
 
-.entries > * > * {
+.entries>*>* {
 	width: 100%;
 	height: 100%;
 }
 
-.entries > img::after {
+.entries>img::after {
 	content: attr(hint);
 	background-color: var(--bgc);
 	color: var(--fgc);
@@ -130,15 +136,24 @@ span {
 	border-radius: 0.125em;
 }
 
-.bordered > * {
+.bordered>* {
 	height: auto;
 }
 
-.bordered > * > svg {
+.bordered>*>svg {
 	border: 1px solid var(--fgc);
 	background: var(--fgc);
 }
 
-header > section > h2 {
+header>section>h2 {
 	line-height: 1.1;
+}
+
+header,
+footer {
+	padding: 0.5em;
+}
+
+footer {
+	opacity: 0.5;
 }

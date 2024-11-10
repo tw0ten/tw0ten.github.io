@@ -21,9 +21,9 @@
 }
 
 #cmd * {
+	color: #FFFFFF;
 	white-space: pre;
 	text-align: left;
-	color: var(--fgc);
 	word-break: keep-all;
 	display: inline;
 }
