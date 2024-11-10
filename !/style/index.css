@@ -1,61 +1,13 @@
-:root {
-	--bgc: #202020;
-	--fgc: #ffffff;
-	--acc: #40e0d0;
-	--font: "JetBrains Mono";
-	font-family: var(--font);
-	font-size: 16px;
-	fill: var(--fgc);
-}
-
-html,
-body {
-	height: 100%;
-	width: 100%;
-}
-
-@media (prefers-color-scheme: light) {
-	:root {
-		--bgc: #ffffff;
-		--fgc: #202020;
-	}
-}
-
-* {
-	background: transparent;
-	color: var(--fgc);
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	max-width: 100%;
-	text-align: center;
-	word-wrap: break-word;
-}
-
-body {
-	background: var(--bgc);
-}
-
-main {
-	padding: 2em;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-}
-
-section {
-	padding: 0.5em;
-	display: grid;
-	place-items: center;
-}
-
 .me {
 	height: 4.5em;
 	width: 4.5em;
 	border-radius: 15%;
 	overflow: hidden;
 	position: relative;
+}
+
+.me:hover>img {
+	opacity: 1 !important;
 }
 
 .me>img {
@@ -68,17 +20,6 @@ section {
 	width: 100%;
 }
 
-.me:hover>img {
-	opacity: 1 !important;
-}
-
-a[href] {
-	text-decoration: none;
-}
-
-a[href]:hover {
-	color: var(--acc);
-}
 
 .contacts a:hover {
 	fill: var(--acc);
@@ -125,15 +66,19 @@ a[href]:hover {
 	text-wrap: nowrap;
 }
 
+header>section>h2 {
+	line-height: 1.1;
+}
+
+header {
+	margin-top: 3em;
+	display: grid;
+	place-items: center;
+}
+
 *[hint]:hover::after,
 *[hint]:focus::after {
 	display: block;
-}
-
-span {
-	background: var(--fgc);
-	color: var(--bgc);
-	border-radius: 0.125em;
 }
 
 .bordered>* {
@@ -145,15 +90,23 @@ span {
 	background: var(--fgc);
 }
 
-header>section>h2 {
-	line-height: 1.1;
+#gh>li {
+	display: flex;
+	flex-direction: row;
+	place-items: center;
+	text-align: left;
 }
 
-header,
-footer {
-	padding: 0.5em;
+#gh>li::marker {
+	content: "";
 }
 
-footer {
-	opacity: 0.5;
+#gh>li>svg {
+	width: 1em;
+	height: 1em;
+}
+
+#exp>* {
+	margin-left: 0.2em;
+	margin-right: 0.2em;
 }
