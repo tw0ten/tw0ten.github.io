@@ -13,16 +13,27 @@
 
 * {
 	font-family: var(--font);
+
 	background: transparent;
 	color: var(--fgc);
+
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	max-width: 100%;
+
 	text-align: center;
 	word-wrap: break-word;
+
 	border: none;
 	outline: none;
+
+	max-width: 100%;
+	max-height: 100%;
+}
+
+input {
+	text-align: initial;
+	font-size: 1em;
 }
 
 @media (prefers-color-scheme: light) {
