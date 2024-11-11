@@ -1,4 +1,4 @@
-function notify(str, timeout = 3500) {
+let notify = (str, timeout = 3500) => {
 	if (timeout <= 0) return;
 	const p = document.getElementById("notify");
 	if (!p) {
@@ -18,15 +18,21 @@ function notify(str, timeout = 3500) {
 		});
 		return notify(str, timeout);
 	}
+	p.style.display = "none";
 	const el = document.createElement("div");
-	const strs = str.split("\n");
-	for (let s of strs) {
+	el.style.animationDuration = timeout + "ms";
+	el.onanimationend = el.remove;
+	if (str.startsWith("OK \n")) {
+		el.style.color = "#00AA00";
+		str = str.substring(4, str.length);
+	} else if (str.startsWith("ERR\n")) {
+		el.style.color = "#FF0000";
+		str = str.substring(4, str.length);
+	}
+	for (let s of str.split("\n")) {
 		let e = "p";
 		if (s.length === 0) {
 			e = "br";
-		} else if (s.startsWith("##")) {
-			e = "h3";
-			s = s.substring(2, s.length);
 		} else if (s.startsWith("#")) {
 			e = "h4";
 			s = s.substring(1, s.length);
@@ -35,7 +41,6 @@ function notify(str, timeout = 3500) {
 		ne.innerText += s;
 		el.appendChild(ne);
 	}
-	el.style.animationDuration = timeout + "ms";
-	el.onanimationend = el.remove;
 	p.appendChild(el);
-}
+	return el;
+};
