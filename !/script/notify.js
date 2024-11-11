@@ -1,9 +1,10 @@
 let notify = (str, timeout = 3500) => {
+	const id = "notify";
 	if (timeout <= 0) return;
-	const p = document.getElementById("notify");
+	const p = document.getElementById(id);
 	if (!p) {
 		const p = document.createElement("div");
-		p.id = "notify";
+		p.id = id;
 		document.body.appendChild(p);
 		const style = document.createElement("style");
 		fetch("/!/style/notify.css").then((r) => {
@@ -22,8 +23,8 @@ let notify = (str, timeout = 3500) => {
 	const el = document.createElement("div");
 	el.style.animationDuration = timeout + "ms";
 	el.onanimationend = el.remove;
-	if (str.startsWith("OK \n")) {
-		el.style.color = "#00AA00";
+	if (str.startsWith("INF\n")) {
+		el.style.color = "var(--acc)";
 		str = str.substring(4, str.length);
 	} else if (str.startsWith("ERR\n")) {
 		el.style.color = "#FF0000";

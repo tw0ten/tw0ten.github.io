@@ -19,13 +19,12 @@
 		};
 	}
 
-	function formatDate(d, wS = true) {
+	function formatDate(d, s = true) {
 		return `[${d.getDay()}.${d.getDate().toString().padStart(2, "0")}/${
 			(d.getMonth() + 1).toString().padStart(2, "0")
 		}|${d.getHours().toString().padStart(2, "0")}:${
 			d.getMinutes().toString().padStart(2, "0")
-		}` + (!wS ? "" : ":" + d.getSeconds().toString().padStart(2, "0")) +
-			"]";
+		}${s ? `:${d.getSeconds().toString().padStart(2, "0")}` : ""}]`;
 	}
 
 	function updateSchedule() {
