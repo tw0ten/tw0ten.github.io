@@ -1,4 +1,4 @@
-let notify = (str, timeout = 3500) => {
+let notify = (str, timeout = 3500, onend = () => {}) => {
 	const id = "notify";
 	if (timeout <= 0) return;
 	const p = document.getElementById(id);
@@ -22,7 +22,10 @@ let notify = (str, timeout = 3500) => {
 	p.style.display = "none";
 	const el = document.createElement("div");
 	el.style.animationDuration = timeout + "ms";
-	el.onanimationend = el.remove;
+	el.onanimationend = () => {
+		el.remove();
+		onend();
+	};
 	if (str.startsWith("INF\n")) {
 		el.style.color = "var(--acc)";
 		str = str.substring(4, str.length);
