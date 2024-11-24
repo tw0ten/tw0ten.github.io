@@ -1,4 +1,8 @@
-export const fetchRepos = async (name = "tw0ten", timeout = 3000, retry = 3) => {
+export const fetchRepos = async (
+	name = "tw0ten",
+	timeout = 3000,
+	retry = 3,
+) => {
 	if (retry < 0) return [];
 	const l = await (async () => {
 		const rl = await fetch(`https://api.github.com/users/${name}/repos`);

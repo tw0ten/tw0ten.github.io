@@ -18,7 +18,7 @@
 	}
 }
 
-#notify>div {
+#notify > div {
 	padding: 0.25em;
 	margin: 0.25em;
 	position: relative;
@@ -26,12 +26,12 @@
 	background-color: var(--bgc);
 }
 
-#notify>div>* {
+#notify > div > * {
 	text-align: right;
 	color: inherit;
 }
 
-#notify>div::after {
+#notify > div::after {
 	content: "";
 	background-color: var(--fgc);
 	width: 100%;

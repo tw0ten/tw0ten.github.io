@@ -21,19 +21,19 @@
 }
 
 #cmd * {
-	color: #FFFFFF;
+	color: #ffffff;
 	white-space: pre;
 	text-align: left;
 	word-break: keep-all;
 	display: inline;
 }
 
-#cmd>div {
+#cmd > div {
 	display: flex;
 	width: 100%;
 }
 
-#cmd>div>input {
+#cmd > div > input {
 	min-width: 0px;
 	width: 100%;
 	font: var(--font);

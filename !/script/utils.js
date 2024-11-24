@@ -6,7 +6,7 @@ const shuffle = (el) => {
 		[els[i], els[j]] = [els[j], els[i]];
 	}
 	els.forEach((child) => el.appendChild(child));
-}
+};
 
 const randomString = (x = 0) => {
 	const randstr =
@@ -17,4 +17,4 @@ const randomString = (x = 0) => {
 		s += randstr[Math.floor(Math.random() * randstr.length)];
 	}
 	return s;
-}
+};

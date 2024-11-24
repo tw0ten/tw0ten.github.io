@@ -32,7 +32,6 @@ body {
 	width: 100%;
 }
 
-
 main {
 	padding: 2em;
 	display: flex;
@@ -61,15 +60,8 @@ span {
 	border-radius: 0.125em;
 }
 
-header,
-footer {
-	padding: 0.5em;
-}
-
 footer {
 	opacity: 0.5;
-	display: flex;
-	justify-content: center;
 }
 
 * {
