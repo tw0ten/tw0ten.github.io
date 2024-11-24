@@ -1,4 +1,4 @@
-let notify = (str, timeout = 3500, onend = () => {}) => {
+const notify = (str, timeout = 3500, onend = () => {}) => {
 	const id = "notify";
 	if (timeout <= 0) return;
 	const p = document.getElementById(id);

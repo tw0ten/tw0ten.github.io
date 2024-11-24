@@ -68,6 +68,8 @@ footer {
 
 footer {
 	opacity: 0.5;
+	display: flex;
+	justify-content: center;
 }
 
 * {
