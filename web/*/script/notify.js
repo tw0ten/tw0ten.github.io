@@ -1,31 +1,25 @@
-const notify = (str, timeout = 3500, onend = () => {}) => {
-	const id = "notify";
-	if (timeout <= 0) return;
+const id = "notify";
+const css = "/*/style/notify.css";
+
+export default (str, timeout = 3500) => {
 	const p = document.getElementById(id);
 	if (!p) {
 		const p = document.createElement("div");
 		p.id = id;
 		document.body.appendChild(p);
 		const style = document.createElement("style");
-		fetch("/!/style/notify.css").then((r) => {
+		fetch(css).then((r) => {
 			r.text().then((t) => {
 				style.innerText = t;
 				p.appendChild(style);
-			}).catch((_) => {
-				p.remove();
-			});
-		}).catch((_) => {
-			p.remove();
-		});
+			}).catch(() => p.remove());
+		}).catch(() => p.remove());
 		return notify(str, timeout);
 	}
 	p.style.display = "none";
 	const el = document.createElement("div");
 	el.style.animationDuration = timeout + "ms";
-	el.onanimationend = () => {
-		el.remove();
-		onend();
-	};
+	el.onanimationend = el.remove;
 	if (str.startsWith("INF\n")) {
 		el.style.color = "var(--acc)";
 		str = str.substring(4, str.length);

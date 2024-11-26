@@ -1,4 +1,6 @@
-const get = async (i = "localhost", h = {}) => {
+import notify from "/*/script/notify.js";
+
+export const get = async (i = "localhost", h = {}) => {
 	try {
 		const response = await fetch(i, {
 			headers: h,
@@ -10,7 +12,7 @@ const get = async (i = "localhost", h = {}) => {
 	}
 };
 
-const post = async (i = "localhost", b = "", h = {}) => {
+export const post = async (i = "localhost", b = "", h = {}) => {
 	try {
 		const response = await fetch(i, {
 			method: "POST",
@@ -92,7 +94,5 @@ const http_err = (code) => {
 		511: "Network Authentication Required",
 	};
 
-	return new Error(
-		`${code} - ${http_code_names[code]}`,
-	);
+	return new Error(`${code} - ${http_code_names[code]}`);
 };

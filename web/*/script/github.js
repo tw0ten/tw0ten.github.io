@@ -21,5 +21,5 @@ export const fetchRepos = async (
 	})();
 	if (l) return l;
 	await new Promise((r) => setTimeout(r, timeout));
-	return await fetchRepos(name, timeout, retry--);
+	return fetchRepos(name, timeout, retry--);
 };

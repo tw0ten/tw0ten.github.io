@@ -1,0 +1,4 @@
+#!/bin/sh
+deno fmt
+cd web
+python -m http.server
