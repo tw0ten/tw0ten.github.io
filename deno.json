@@ -1,6 +1,0 @@
-{
-	"fmt": {
-		"useTabs": true,
-		"exclude": ["README.md"]
-	}
-}
