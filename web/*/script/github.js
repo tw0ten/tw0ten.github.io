@@ -1,25 +1,13 @@
+import { get } from "./fetch.js";
+
 export const fetchRepos = async (
 	name = "tw0ten",
 	timeout = 3000,
-	retry = 3,
+	retry = 0,
 ) => {
 	if (retry < 0) return [];
-	const l = await (async () => {
-		const rl = await fetch(`https://api.github.com/users/${name}/repos`);
-		if (!rl.ok) return;
-		const data = await rl.json();
-		for (const i in data) {
-			if (data[i].fork) {
-				const or = await fetch(
-					`https://api.github.com/repos/${name}/${data[i].name}`,
-				);
-				if (!or.ok) continue;
-				data[i] = await or.json();
-			}
-		}
-		return data;
-	})();
-	if (l) return l;
+	const l = await get(`https://api.github.com/users/${name}/repos`);
+	if (l) return JSON.parse(l);
 	await new Promise((r) => setTimeout(r, timeout));
-	return fetchRepos(name, timeout, retry--);
+	return fetchRepos(name, timeout, --retry);
 };
